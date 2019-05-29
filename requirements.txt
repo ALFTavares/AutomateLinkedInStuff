@@ -1,0 +1,10 @@
+certifi==2019.3.9
+chardet==3.0.4
+get==2019.4.13
+idna==2.8
+lxml==4.3.3
+post==2019.4.13
+public==2019.4.13
+query-string==2019.4.13
+selenium==3.141.0
+urllib3==1.25.3
