@@ -1,6 +1,4 @@
 from selenium import webdriver
-from getpass import getpass
-# TODO: getpass isn't working yet.. need to check why
 
 
 def open_browser():
