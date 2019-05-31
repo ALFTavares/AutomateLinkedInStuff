@@ -18,8 +18,9 @@ def open_browser():
         else:
             driver = webdriver.Chrome(executable_path='C:\Program Files (x86)\chromedriver_win32\chromedriver.exe',
                                   options=options)
-
-        driver.minimize_window()
+        # uncomment later to minimize window.
+        # we don't have to see what's happening in the browser
+        # driver.minimize_window()
 
         return driver
     except Exception as e:
@@ -53,9 +54,9 @@ def choose_option(option, driver):
     if option == '1':
         accept_object = Accept(driver)
         accept(accept_object)
-    elif option == '2':
-        add_skill_object = Add_Skill(driver)
-        add_skill(add_skill_object)
+    # elif option == '2':
+    #     add_skill_object = Add_Skill(driver)
+    #     add_skill(add_skill_object)
     else:
         print('Invalid option. Choose a valid one')
         choose_option(options_prompt(), driver)
@@ -68,6 +69,7 @@ def accept(accept_object):
         accept_object.accept_people(people_to_accept)
 
 
+# working on this one
 def add_skill(add_skill_object):
     add_skill_object.move_to_skills()
     list_of_people = add_skill_object.get_people()
