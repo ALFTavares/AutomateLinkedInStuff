@@ -43,7 +43,8 @@ def login(username, password):
 def options_prompt():
     print('choose an option:')
     print('1: Accept Invites')
-    print('2: Add Skill Points')
+    # print('2: Add Skill Points')
+    print('q: quit')
     return (input('option: '))
 
 
@@ -53,9 +54,11 @@ def choose_option(option, driver):
     if option == '1':
         accept_object = Accept(driver)
         accept(accept_object)
-    elif option == '2':
-        add_skill_object = Add_Skill(driver)
-        add_skill(add_skill_object)
+    # elif option == '2':
+    #     add_skill_object = Add_Skill(driver)
+    #     add_skill(add_skill_object)
+    elif option == 'q':
+        print('ok bye')
     else:
         print('Invalid option. Choose a valid one')
         choose_option(options_prompt(), driver)
@@ -68,12 +71,12 @@ def accept(accept_object):
         accept_object.accept_people(people_to_accept)
 
 
-def add_skill(add_skill_object):
-    add_skill_object.move_to_skills()
-    list_of_people = add_skill_object.get_people()
-    for person in list_of_people:
-        print(person)
-    print(len(list_of_people))
+# def add_skill(add_skill_object):
+#     add_skill_object.move_to_skills()
+#     list_of_people = add_skill_object.get_people()
+#     for person in list_of_people:
+#         print(person.element)
+#     print(len(list_of_people))
 
 
 if __name__ == '__main__':
