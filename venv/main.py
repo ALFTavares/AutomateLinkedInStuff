@@ -72,13 +72,17 @@ def add_skill(add_skill_object):
     add_skill_object.move_to_skills()
     list_of_people = add_skill_object.get_people()
     for person in list_of_people:
-        print(person)
+        print(person.element)
     print(len(list_of_people))
 
 
 if __name__ == '__main__':
-    username = input('insert username\n')
-    password = input('insert password\n')
+    # using this fake email account
+    # replace with yours, use this one instead or comment this and uncomment the inputs
+    username = 'emailwithunderscores@gmail.com'
+    password = 'A!123456'
+    # username = input('insert username\n')
+    # password = input('insert password\n')
     driver = None
 
     try:
