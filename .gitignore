@@ -97,6 +97,7 @@ fabric.properties
 pyvenv.cfg
 .venv
 pip-selfcheck.json
+venv/__pycache__/*
 
 ### Windows ###
 # Windows thumbnail cache files
