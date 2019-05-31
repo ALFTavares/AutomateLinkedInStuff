@@ -19,7 +19,8 @@ def open_browser():
             driver = webdriver.Chrome(executable_path='C:\Program Files (x86)\chromedriver_win32\chromedriver.exe',
                                   options=options)
 
-        driver.minimize_window()
+        #uncomment later. need it now to see what's happening real time
+        # driver.minimize_window()
 
         return driver
     except Exception as e:
