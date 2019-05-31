@@ -43,6 +43,7 @@ def login(username, password):
 def options_prompt():
     print('choose an option:')
     print('1: Accept Invites')
+    print('2: Add Skill Points')
     return (input('option: '))
 
 
@@ -68,8 +69,11 @@ def accept(accept_object):
 
 
 def add_skill(add_skill_object):
-    print('here')
     add_skill_object.move_to_skills()
+    list_of_people = add_skill_object.get_people()
+    for person in list_of_people:
+        print(person)
+    print(len(list_of_people))
 
 
 if __name__ == '__main__':
