@@ -19,7 +19,8 @@ def open_browser():
             driver = webdriver.Chrome(executable_path='C:\Program Files (x86)\chromedriver_win32\chromedriver.exe',
                                   options=options)
 
-        driver.minimize_window()
+        #uncomment later. need it now to see what's happening real time
+        # driver.minimize_window()
 
         return driver
     except Exception as e:
@@ -44,6 +45,7 @@ def options_prompt():
     print('choose an option:')
     print('1: Accept Invites')
     print('2: Add Skill Points')
+    print('q: quit')
     return (input('option: '))
 
 
@@ -56,6 +58,8 @@ def choose_option(option, driver):
     elif option == '2':
         add_skill_object = Add_Skill(driver)
         add_skill(add_skill_object)
+    elif option == 'q':
+        print('ok bye')
     else:
         print('Invalid option. Choose a valid one')
         choose_option(options_prompt(), driver)
