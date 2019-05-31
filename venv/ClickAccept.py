@@ -1,60 +1,39 @@
 from selenium import webdriver
 
 
-def open_browser():
-    try:
-        options = webdriver.ChromeOptions()
-        options.add_argument('--ignore-certificate-errors')
-        options.add_argument('--ignore-ssl-errors')
-        driver = webdriver.Chrome(executable_path='C:\Program Files (x86)\chromedriver_win32\chromedriver.exe')
-        driver.minimize_window()
-        driver.get('https://www.linkedin.com/login/')
-        return driver
-    except Exception as e:
-        print(str(e))
+class Accept():
+    driver = None
 
 
-def login(driver, username, password):
-    username_box = driver.find_element_by_id("username")
-    password_box = driver.find_element_by_id("password")
-
-    username_box.send_keys(username)
-    password_box.send_keys(password)
-
-    driver.find_element_by_class_name('login__form_action_container').click()
+    def __init__(self, driver):
+        self.driver = driver
 
 
-def move_to_mynetwork(driver):
-    driver.get('https://www.linkedin.com/mynetwork/invitation-manager/')
+    def login(self, username, password):
+        username_box = self.driver.find_element_by_id("username")
+        password_box = self.driver.find_element_by_id("password")
 
-    xpath = '//button[contains(@data-control-name,"accept")]'
-    list_of_people_to_accept = driver.find_elements_by_xpath(xpath)
-    for person in list_of_people_to_accept:
-        driver.execute_script("arguments[0].click();", person)
+        username_box.send_keys(username)
+        password_box.send_keys(password)
 
-
-def has_more():
-    xpath = '//button[contains(@data-control-name,"accept")]'
-    x = driver.find_elements_by_xpath(xpath)
-
-    return True if len(x) > 0 else False
+        self.driver.find_element_by_class_name('login__form_action_container').click()
 
 
-username = input('insert username\n')
-password = input('insert password\n')
+    def move_to_mynetwork(self):
+        self.driver.get('https://www.linkedin.com/mynetwork/invitation-manager/')
 
-try:
-    driver = open_browser()
-    login(driver, username, password)
-    move_to_mynetwork(driver)
+        xpath = '//button[contains(@data-control-name,"accept")]'
+        list_of_people_to_accept = self.driver.find_elements_by_xpath(xpath)
+        return list_of_people_to_accept
 
-    while has_more():
-        move_to_mynetwork(driver)
 
-    print('done successfully. ignore errors')
-except:
-    print('woops! something went wrong\nNow it\'s your chance to correct the problem :)')
-finally:
-    driver.quit()
-    input('press any key to exit...')
+    def accept_people(self, list_of_people):
+        for person in list_of_people_to_accept:
+            self.driver.execute_script("arguments[0].click();", person)
 
+
+    def has_more(self):
+        xpath = '//button[contains(@data-control-name,"accept")]'
+        x = self.driver.find_elements_by_xpath(xpath)
+
+        return len(x) > 0
