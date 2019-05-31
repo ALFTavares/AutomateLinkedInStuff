@@ -80,8 +80,12 @@ def accept(accept_object):
 
 
 if __name__ == '__main__':
-    username = input('insert username\n')
-    password = input('insert password\n')
+    # using this fake email account
+    # replace with yours, use this one instead or comment this and uncomment the inputs
+    username = 'emailwithunderscores@gmail.com'
+    password = 'A!123456'
+    # username = input('insert username\n')
+    # password = input('insert password\n')
     driver = None
 
     try:
