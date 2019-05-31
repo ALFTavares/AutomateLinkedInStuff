@@ -2,7 +2,7 @@ from selenium import webdriver
 import constants as const
 
 
-class Accept():
+class Accept:
     driver = None
 
 
