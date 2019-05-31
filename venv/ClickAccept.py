@@ -1,4 +1,5 @@
 from selenium import webdriver
+import constants as const
 
 
 class Accept():
@@ -10,7 +11,7 @@ class Accept():
 
 
     def move_to_mynetwork(self):
-        self.driver.get('https://www.linkedin.com/mynetwork/invitation-manager/')
+        self.driver.get(const.INVITATION_NETWORK)
         return get_people_to_accept()
 
 
