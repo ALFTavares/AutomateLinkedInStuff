@@ -57,9 +57,9 @@ def choose_option(option, driver):
     if option == '1':
         accept_object = Accept(driver)
         accept(accept_object)
-    # elif option == '2':
-    #     add_skill_object = Add_Skill(driver)
-    #     add_skill(add_skill_object)
+    elif option == '2':
+        add_skill_object = Add_Skill(driver)
+        add_skill(add_skill_object)
     elif option == 'q':
         print('ok bye')
     else:
@@ -74,6 +74,17 @@ def accept(accept_object):
         accept_object.accept_people(people_to_accept)
 
 
+def choose_login_option(option):
+    if option == 1:
+        username = input('insert username\n')
+        password = input('insert password\n')
+    else:
+        username = 'emailwithunderscores@gmail.com'
+        password = 'A!123456'
+
+    return username + ";" + password
+
+
 # def add_skill(add_skill_object):
 #     add_skill_object.move_to_skills()
 #     list_of_people = add_skill_object.get_people()
@@ -85,10 +96,10 @@ def accept(accept_object):
 if __name__ == '__main__':
     # using this fake email account
     # replace with yours, use this one instead or comment this and uncomment the inputs
-    username = 'emailwithunderscores@gmail.com'
-    password = 'A!123456'
-    # username = input('insert username\n')
-    # password = input('insert password\n')
+    option = input("Choose one option\n1- login with credentials\n2- login with default")
+    credentials = choose_login_option(option)
+    username, password = credentials.split(";")
+
     driver = None
 
     try:
