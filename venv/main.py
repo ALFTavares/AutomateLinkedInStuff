@@ -19,8 +19,10 @@ def open_browser():
             driver = webdriver.Chrome(executable_path='C:\Program Files (x86)\chromedriver_win32\chromedriver.exe',
                                   options=options)
 
+
         # uncomment or comment this line to see or hide what the browser is doing
         driver.minimize_window()
+
 
         return driver
     except Exception as e:
@@ -44,6 +46,8 @@ def login(username, password):
 def options_prompt():
     print('choose an option:')
     print('1: Accept Invites')
+    # print('2: Add Skill Points')
+    print('q: quit')
     return (input('option: '))
 
 
@@ -56,6 +60,8 @@ def choose_option(option, driver):
     # elif option == '2':
     #     add_skill_object = Add_Skill(driver)
     #     add_skill(add_skill_object)
+    elif option == 'q':
+        print('ok bye')
     else:
         print('Invalid option. Choose a valid one')
         choose_option(options_prompt(), driver)
@@ -68,14 +74,21 @@ def accept(accept_object):
         accept_object.accept_people(people_to_accept)
 
 
-def add_skill(add_skill_object):
-    print('here')
-    add_skill_object.move_to_skills()
+# def add_skill(add_skill_object):
+#     add_skill_object.move_to_skills()
+#     list_of_people = add_skill_object.get_people()
+#     for person in list_of_people:
+#         print(person.element)
+#     print(len(list_of_people))
 
 
 if __name__ == '__main__':
-    username = input('insert username\n')
-    password = input('insert password\n')
+    # using this fake email account
+    # replace with yours, use this one instead or comment this and uncomment the inputs
+    username = 'emailwithunderscores@gmail.com'
+    password = 'A!123456'
+    # username = input('insert username\n')
+    # password = input('insert password\n')
     driver = None
 
     try:
