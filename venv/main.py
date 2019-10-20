@@ -53,9 +53,9 @@ def choose_option(option, driver):
     if option == '1':
         accept_object = Accept(driver)
         accept(accept_object)
-    elif option == '2':
-        add_skill_object = Add_Skill(driver)
-        add_skill(add_skill_object)
+    # elif option == '2':
+    #     add_skill_object = Add_Skill(driver)
+    #     add_skill(add_skill_object)
     else:
         print('Invalid option. Choose a valid one')
         choose_option(options_prompt(), driver)
