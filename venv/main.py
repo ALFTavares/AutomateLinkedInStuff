@@ -19,6 +19,7 @@ def open_browser():
             driver = webdriver.Chrome(executable_path='C:\Program Files (x86)\chromedriver_win32\chromedriver.exe',
                                   options=options)
 
+        # uncomment or comment this line to see or hide what the browser is doing
         driver.minimize_window()
 
         return driver
