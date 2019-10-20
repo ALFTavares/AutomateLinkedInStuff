@@ -20,8 +20,7 @@ def open_browser():
                                   options=options)
 
         # uncomment later. need it now to see what's happening real time
-        # or comment to let browser open to see what's happening
-        driver.minimize_window()
+        # driver.minimize_window()
 
         return driver
     except Exception as e:
